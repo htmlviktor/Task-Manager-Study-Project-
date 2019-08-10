@@ -2,8 +2,7 @@ const mainControl = document.querySelector('.main__control');
 const main = document.querySelector('.main');
 // ф-ция возвращает елемент главное меню
 markupElementMainMenu = () => {
-  const mainMenu =
-  `<section class="control__btn-wrap">
+  return `<section class="control__btn-wrap">
   <input
     type="radio"
     name="control"
@@ -30,12 +29,10 @@ markupElementMainMenu = () => {
   <label for="control__statistic" class="control__label"
     >STATISTICS</label
   >`;
-  return mainMenu
 };
 //ф-ция фозвращает елемент поиск
 markupElementSearch = () => {
-  const search =
-  `<section class="main__search search container">
+  return `<section class="main__search search container">
   <input
     type="text"
     id="search__input"
@@ -44,12 +41,10 @@ markupElementSearch = () => {
   />
   <label class="visually-hidden" for="search__input">Search</label>
 </section>`;
-  return search
 };
 //ф-ция возвращает елемент фильтр
 markupElementFilter = () => {
-  const filter =
-  `<section class="main__filter filter container">
+  return `<section class="main__filter filter container">
   <input
     type="radio"
     id="filter__all"
@@ -117,12 +112,10 @@ markupElementFilter = () => {
     >Archive <span class="filter__archive-count">115</span></label
   >
 </section>`;
-  return filter
 };
 // ф-ция возвращает контент приложения
 markupElementContent = () => {
-  const content =
-  `<section class="board container">
+  return `<section class="board container">
   <div class="board__filter-list">
     <a href="#" class="board__filter">SORT BY DEFAULT</a>
     <a href="#" class="board__filter">SORT BY DATE up</a>
@@ -568,8 +561,6 @@ markupElementContent = () => {
 
   <button class="load-more" type="button">load more</button>
 </section>`;
-
-return content
 }
 // ф-ция для вставки елемента на страницу
 addMarkupElement = (container, markup) => {
