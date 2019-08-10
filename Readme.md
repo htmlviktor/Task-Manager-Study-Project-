@@ -1,14 +1,14 @@
 # Личный проект «Менеджер задач» [![Build status][travis-image]][travis-url]
 
-* Студент: [Наталья Лоскутова](https://up.htmlacademy.ru/ecmascript/9/user/33515).
-* Наставник: `Неизвестно`.
+* Студент: [Анатолий Пазюк].
+* Наставник: `Бешеный Тигр`.
 
 ---
 
 _Не удаляйте и не изменяйте папки и файлы:_
 _`.editorconfig`, `.gitattributes`, `.gitignore`, `.travis.yml`, `package.json`._
 
----
+---ы
 
 ### Памятка
 
