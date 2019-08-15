@@ -1,6 +1,3 @@
-const mainControl = document.querySelector(`.main__control`);
-const main = document.querySelector(`.main`);
-
 import {markupMainMenu} from './components/main-menu.js';
 import {markupSearch} from './components/search.js';
 import {markupFilter} from './components/filter.js';
@@ -11,6 +8,8 @@ import {markupCrad} from './components/card.js';
 import {markupCardEdit} from './components/card-edit.js';
 import {markupLoadMore} from './components/load-more-btn.js';
 
+const mainControl = document.querySelector(`.main__control`);
+const main = document.querySelector(`.main`);
 // ф-ция для вставки елемента на страницу
 const addMarkupElement = (container, markup) => {
   container.insertAdjacentHTML(`beforeend`, markup);
