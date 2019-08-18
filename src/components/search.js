@@ -1,6 +1,6 @@
 // ф-ция фозвращает елемент поиск
 export const markupSearch = () => {
-    return `<section class="main__search search container">
+  return `<section class="main__search search container">
     <input
       type="text"
       id="search__input"
@@ -9,4 +9,4 @@ export const markupSearch = () => {
     />
     <label class="visually-hidden" for="search__input">Search</label>
     </section>`;
-  };
+};

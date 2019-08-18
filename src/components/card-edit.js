@@ -1,6 +1,6 @@
 // ф-ция создания карточки с настройками
 export const markupCardEdit = () => {
-    return `<article class="card card--edit card--yellow card--repeat">
+  return `<article class="card card--edit card--yellow card--repeat">
     <form class="card__form" method="get">
       <div class="card__inner">
         <div class="card__control">
@@ -267,4 +267,4 @@ export const markupCardEdit = () => {
       </div>
     </form>
     </article>`;
-  };
+};
