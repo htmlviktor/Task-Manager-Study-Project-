@@ -1,5 +1,5 @@
 // ф-ция создвния карточки
-export const markupCrad = (description, dueDate, tags, color, repeatingDays) => {
+export const markupCard = ({description, dueDate, tags, color, repeatingDays}) => {
   return `<article class="card card--${color} ${Object.keys(repeatingDays).some((day) => repeatingDays[day]) ? `card--repeat` : `` }">
     <div class="card__form">
       <div class="card__inner">
