@@ -1,6 +1,22 @@
-// ф-ция создвния карточки
-export const markupCard = ({description, dueDate, tags, color, repeatingDays}) => {
-  return `<article class="card card--${color} ${Object.keys(repeatingDays).some((day) => repeatingDays[day]) ? `card--repeat` : `` }">
+import {createElement} from './../utils.js';
+
+export class Task {
+  constructor({description, dueDate, tags, color, repeatingDays}) {
+    this._description = description;
+    this._dueDate = new Date(dueDate);
+    this._tags = tags;
+    this._color = color;
+    this._repeatingDays = repeatingDays;
+    this._element = null;
+  }
+  getElement() {
+    if (!this._element) {
+      this._element = createElement(this.getTemplate());
+    }
+    return this._element;
+  }
+  getTemplate() {
+    return `<article class="card card--${this._color} ${Object.keys(this._repeatingDays).some((day) => this._repeatingDays[day]) ? `card--repeat` : `` }">
     <div class="card__form">
       <div class="card__inner">
         <div class="card__control">
@@ -25,7 +41,7 @@ export const markupCard = ({description, dueDate, tags, color, repeatingDays}) =
         </div>
 
         <div class="card__textarea-wrap">
-          <p class="card__text">${description}</p>
+          <p class="card__text">${this._description}</p>
         </div>
 
         <div class="card__settings">
@@ -33,15 +49,15 @@ export const markupCard = ({description, dueDate, tags, color, repeatingDays}) =
             <div class="card__dates">
               <div class="card__date-deadline">
                 <p class="card__input-deadline-wrap">
-                  <span class="card__date">${new Date(dueDate).toDateString()}</span>
-                  <span class="card__time">${new Date(dueDate).getHours()} : ${new Date(dueDate).getMinutes()}</span>
+                  <span class="card__date">${new Date(this._dueDate).toDateString()}</span>
+                  <span class="card__time">${new Date(this._dueDate).getHours()} : ${new Date(this._dueDate).getMinutes()}</span>
                 </p>
               </div>
             </div>
 
             <div class="card__hashtag">
               <div class="card__hashtag-list">
-                ${Array.from(tags).map((tag) => `<span class="card__hashtag-inner">
+                ${Array.from(this._tags).map((tag) => `<span class="card__hashtag-inner">
                   <span class="card__hashtag-name">
                     #${tag}
                   </span>
@@ -53,4 +69,5 @@ export const markupCard = ({description, dueDate, tags, color, repeatingDays}) =
       </div>
     </div>
   </article>`;
-};
+  }
+}

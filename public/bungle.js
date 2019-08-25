@@ -1,103 +1,121 @@
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// define __esModule on exports
-/******/ 	__webpack_require__.r = function(exports) {
-/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 		}
-/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 	};
-/******/
-/******/ 	// create a fake namespace object
-/******/ 	// mode & 1: value is a module id, require it
-/******/ 	// mode & 2: merge all properties of value into the ns
-/******/ 	// mode & 4: return value when already ns object
-/******/ 	// mode & 8|1: behave like require
-/******/ 	__webpack_require__.t = function(value, mode) {
-/******/ 		if(mode & 1) value = __webpack_require__(value);
-/******/ 		if(mode & 8) return value;
-/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
-/******/ 		var ns = Object.create(null);
-/******/ 		__webpack_require__.r(ns);
-/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
-/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
-/******/ 		return ns;
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-/******/
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/main.js");
-/******/ })
-/************************************************************************/
-/******/ ({
+/** ****/ (function (modules) { // webpackBootstrap
+/** ****/ 	// The module cache
+/** ****/ 	let installedModules = {};
+  /** ****/
+  /** ****/ 	// The require function
+  /** ****/ 	function __webpack_require__(moduleId) {
+    /** ****/
+    /** ****/ 		// Check if module is in cache
+    /** ****/ 		if (installedModules[moduleId]) {
+      /** ****/ 			return installedModules[moduleId].exports;
+      /** ****/ 		}
+    /** ****/ 		// Create a new module (and put it into the cache)
+    /** ****/ 		let module = installedModules[moduleId] = {
+      /** ****/ 			i: moduleId,
+      /** ****/ 			l: false,
+      /** ****/ 			exports: {}
+      /** ****/};
+    /** ****/
+    /** ****/ 		// Execute the module function
+    /** ****/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+    /** ****/
+    /** ****/ 		// Flag the module as loaded
+    /** ****/ 		module.l = true;
+    /** ****/
+    /** ****/ 		// Return the exports of the module
+    /** ****/ 		return module.exports;
+    /** ****/ 	}
+  /** ****/
+  /** ****/
+  /** ****/ 	// expose the modules object (__webpack_modules__)
+  /** ****/ 	__webpack_require__.m = modules;
+  /** ****/
+  /** ****/ 	// expose the module cache
+  /** ****/ 	__webpack_require__.c = installedModules;
+  /** ****/
+  /** ****/ 	// define getter function for harmony exports
+  /** ****/ 	__webpack_require__.d = function (exports, name, getter) {
+    /** ****/ 		if (!__webpack_require__.o(exports, name)) {
+      /** ****/ 			Object.defineProperty(exports, name, {enumerable: true, get: getter});
+      /** ****/ 		}
+    /** ****/ 	};
+  /** ****/
+  /** ****/ 	// define __esModule on exports
+  /** ****/ 	__webpack_require__.r = function (exports) {
+    /** ****/ 		if (typeof Symbol !== `undefined` && Symbol.toStringTag) {
+      /** ****/ 			Object.defineProperty(exports, Symbol.toStringTag, {value: `Module`});
+      /** ****/ 		}
+    /** ****/ 		Object.defineProperty(exports, `__esModule`, {value: true});
+    /** ****/ 	};
+  /** ****/
+  /** ****/ 	// create a fake namespace object
+  /** ****/ 	// mode & 1: value is a module id, require it
+  /** ****/ 	// mode & 2: merge all properties of value into the ns
+  /** ****/ 	// mode & 4: return value when already ns object
+  /** ****/ 	// mode & 8|1: behave like require
+  /** ****/ 	__webpack_require__.t = function (value, mode) {
+    /** ****/ 		if (mode & 1) {
+      value = __webpack_require__(value);
+    }
+    /** ****/ 		if (mode & 8) {
+      return value;
+    }
+    /** ****/ 		if ((mode & 4) && typeof value === `object` && value && value.__esModule) {
+      return value;
+    }
+    /** ****/ 		let ns = Object.create(null);
+    /** ****/ 		__webpack_require__.r(ns);
+    /** ****/ 		Object.defineProperty(ns, `default`, {enumerable: true, value});
+    /** ****/ 		if (mode & 2 && typeof value !== `string`) {
+      for (let key in value) {
+        __webpack_require__.d(ns, key, function (key) {
+          return value[key];
+        }.bind(null, key));
+      }
+    }
+    /** ****/ 		return ns;
+    /** ****/ 	};
+  /** ****/
+  /** ****/ 	// getDefaultExport function for compatibility with non-harmony modules
+  /** ****/ 	__webpack_require__.n = function (module) {
+    /** ****/ 		let getter = module && module.__esModule ?
+    /** ****/ 			function getDefault() {
+        return module[`default`];
+      } :
+    /** ****/ 			function getModuleExports() {
+        return module;
+      };
+    /** ****/ 		__webpack_require__.d(getter, `a`, getter);
+    /** ****/ 		return getter;
+    /** ****/ 	};
+  /** ****/
+  /** ****/ 	// Object.prototype.hasOwnProperty.call
+  /** ****/ 	__webpack_require__.o = function (object, property) {
+    return Object.prototype.hasOwnProperty.call(object, property);
+  };
+  /** ****/
+  /** ****/ 	// __webpack_public_path__
+  /** ****/ 	__webpack_require__.p = ``;
+  /** ****/
+  /** ****/
+  /** ****/ 	// Load entry module and return exports
+  /** ****/ 	return __webpack_require__(__webpack_require__.s = `./src/main.js`);
+/** ****/ })
+/** **********************************************************************/
+/** ****/ ({
 
-/***/ "./src/main.js":
-/*!*********************!*\
+  /** */ "./src/main.js":
+  /* !*********************!*\
   !*** ./src/main.js ***!
   \*********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+  /* ! no static exports found */
+  /** */ (function (module, exports) {
 
-const mainControl = document.querySelector(`.main__control`);
-const main = document.querySelector(`.main`);
-// ф-ция возвращает елемент главное меню
-const markupMainMenu = () => {
-  return `<section class="control__btn-wrap">
+    const mainControl = document.querySelector(`.main__control`);
+    const main = document.querySelector(`.main`);
+    // ф-ция возвращает елемент главное меню
+    const markupMainMenu = () => {
+      return `<section class="control__btn-wrap">
   <input
     type="radio"
     name="control"
@@ -124,10 +142,10 @@ const markupMainMenu = () => {
   <label for="control__statistic" class="control__label"
     >STATISTICS</label
   >`;
-};
-// ф-ция фозвращает елемент поиск
-const markupSearch = () => {
-  return `<section class="main__search search container">
+    };
+    // ф-ция фозвращает елемент поиск
+    const markupSearch = () => {
+      return `<section class="main__search search container">
   <input
     type="text"
     id="search__input"
@@ -136,10 +154,10 @@ const markupSearch = () => {
   />
   <label class="visually-hidden" for="search__input">Search</label>
   </section>`;
-};
-// ф-ция возвращает елемент фильтр
-const markupFilter = () => {
-  return `<section class="main__filter filter container">
+    };
+    // ф-ция возвращает елемент фильтр
+    const markupFilter = () => {
+      return `<section class="main__filter filter container">
   <input
     type="radio"
     id="filter__all"
@@ -207,27 +225,27 @@ const markupFilter = () => {
     >Archive <span class="filter__archive-count">115</span></label
   >
 </section>`;
-};
-// ф-ция возвращает главный контейнер плриложения ".board container"
-const markupMainBoardContainer = () => {
-  return `<section class="board container">
+    };
+    // ф-ция возвращает главный контейнер плриложения ".board container"
+    const markupMainBoardContainer = () => {
+      return `<section class="board container">
   </section>`;
-};
-// ф-ция возвращает список фильтров в гл. контейнере плриложения ".board__filter-list"
-const markupBoardfilter = () => {
-  return `<div class="board__filter-list">
+    };
+    // ф-ция возвращает список фильтров в гл. контейнере плриложения ".board__filter-list"
+    const markupBoardfilter = () => {
+      return `<div class="board__filter-list">
   <a href="#" class="board__filter">SORT BY DEFAULT</a>
   <a href="#" class="board__filter">SORT BY DATE up</a>
   <a href="#" class="board__filter">SORT BY DATE down</a>
   </div>`;
-};
-// ф-ция возвращает контейнер л=для крточек ".board__tasks"
-const markupBoardTasks = () => {
-  return `<div class="board__tasks">
+    };
+    // ф-ция возвращает контейнер л=для крточек ".board__tasks"
+    const markupBoardTasks = () => {
+      return `<div class="board__tasks">
   </div>`;
-};
-const markupCrad = () => {
-  return `<article class="card card--black">
+    };
+    const markupCrad = () => {
+      return `<article class="card card--black">
   <div class="card__form">
     <div class="card__inner">
       <div class="card__control">
@@ -292,9 +310,9 @@ const markupCrad = () => {
     </div>
   </div>
   </article>`;
-};
-const markupCardEdit = () => {
-  return `<article class="card card--edit card--yellow card--repeat">
+    };
+    const markupCardEdit = () => {
+      return `<article class="card card--edit card--yellow card--repeat">
   <form class="card__form" method="get">
     <div class="card__inner">
       <div class="card__control">
@@ -561,40 +579,40 @@ const markupCardEdit = () => {
     </div>
   </form>
   </article>`;
-};
-const markupLoadMore = () => {
-  return `<button class="load-more" type="button">load more</button>`;
-};
-// ф-ция для вставки елемента на страницу
-const addMarkupElement = (container, markup) => {
-  container.insertAdjacentHTML(`beforeend`, markup);
-};
-// ф-ция для отрисовки карточек в контейнер
-const addMarkupCard = (cardMarkup, countCard = 1) => {
-  const cardContainer = document.querySelector(`.board__tasks`);
-  for (let i = 0; i < countCard; i++) {
-    cardContainer.insertAdjacentHTML(`beforeend`, cardMarkup);
-  }
-};
-// ф-ция для вставки елементов ".board container"
-const addMarkupInMainBoardContainer = (element) => {
-  const boardContainer = document.querySelector(`.board`);
-  boardContainer.insertAdjacentHTML(`beforeend`, element);
-};
-console.log(`hello + 1`)
-// вставляем елементы
-addMarkupElement(mainControl, markupMainMenu());
-addMarkupElement(main, markupSearch());
-addMarkupElement(main, markupFilter());
-addMarkupElement(main, markupMainBoardContainer());
-addMarkupInMainBoardContainer(markupBoardfilter());
-addMarkupInMainBoardContainer(markupBoardTasks());
-addMarkupCard(markupCardEdit());
-addMarkupCard(markupCrad(), 3);
-addMarkupInMainBoardContainer(markupLoadMore());
+    };
+    const markupLoadMore = () => {
+      return `<button class="load-more" type="button">load more</button>`;
+    };
+    // ф-ция для вставки елемента на страницу
+    const addMarkupElement = (container, markup) => {
+      container.insertAdjacentHTML(`beforeend`, markup);
+    };
+    // ф-ция для отрисовки карточек в контейнер
+    const addMarkupCard = (cardMarkup, countCard = 1) => {
+      const cardContainer = document.querySelector(`.board__tasks`);
+      for (let i = 0; i < countCard; i++) {
+        cardContainer.insertAdjacentHTML(`beforeend`, cardMarkup);
+      }
+    };
+    // ф-ция для вставки елементов ".board container"
+    const addMarkupInMainBoardContainer = (element) => {
+      const boardContainer = document.querySelector(`.board`);
+      boardContainer.insertAdjacentHTML(`beforeend`, element);
+    };
+    console.log(`hello + 1`);
+    // вставляем елементы
+    addMarkupElement(mainControl, markupMainMenu());
+    addMarkupElement(main, markupSearch());
+    addMarkupElement(main, markupFilter());
+    addMarkupElement(main, markupMainBoardContainer());
+    addMarkupInMainBoardContainer(markupBoardfilter());
+    addMarkupInMainBoardContainer(markupBoardTasks());
+    addMarkupCard(markupCardEdit());
+    addMarkupCard(markupCrad(), 3);
+    addMarkupInMainBoardContainer(markupLoadMore());
 
 
-/***/ })
+    /** */ })
 
-/******/ });
-//# sourceMappingURL=bungle.js.map
+/** ****/});
+// # sourceMappingURL=bungle.js.map
