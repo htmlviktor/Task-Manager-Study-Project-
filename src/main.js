@@ -11,6 +11,7 @@ import {render, Position} from './utils.js';
 import {Task} from './components/card.js';
 import {TaskEdit} from './components/card-edit.js';
 
+
 const mainControl = document.querySelector(`.main__control`);
 const main = document.querySelector(`.main`);
 const createTasksArray = (count) => {
