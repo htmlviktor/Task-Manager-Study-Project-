@@ -1,6 +1,18 @@
-// ф-ция создания карточки с настройками
-export const markupCardEdit = () => {
-  return `<article class="card card--edit card--yellow card--repeat">
+import {AbstractComponent} from './abstract-component.js';
+
+export class TaskEdit extends AbstractComponent {
+  constructor({description, dueDate, tags, color, repeatingDays}) {
+    super();
+    this._description = description;
+    this._dueDate = new Date(dueDate);
+    this._tags = tags;
+    this._color = color;
+    this._repeatingDays = repeatingDays;
+    this._element = null;
+  }
+
+  getTemplate() {
+    return `<article class="card card--edit card--${this._color} ${Object.keys(this._repeatingDays).some((day) => this._repeatingDays[day]) ? `card--repeat` : `` }">
     <form class="card__form" method="get">
       <div class="card__inner">
         <div class="card__control">
@@ -27,7 +39,7 @@ export const markupCardEdit = () => {
               class="card__text"
               placeholder="Start typing your text here..."
               name="text"
-            >Here is a card with filled data</textarea>
+            >${this._description}</textarea>
           </label>
         </div>
 
@@ -45,7 +57,7 @@ export const markupCardEdit = () => {
                     type="text"
                     placeholder=""
                     name="date"
-                    value="23 September 11:15 PM"
+                    value="${this._dueDate.toDateString()} ${this._dueDate.getHours()}:${this._dueDate.getMinutes()}"
                   />
                 </label>
               </fieldset>
@@ -135,50 +147,22 @@ export const markupCardEdit = () => {
 
             <div class="card__hashtag">
               <div class="card__hashtag-list">
-                <span class="card__hashtag-inner">
-                  <input
-                    type="hidden"
-                    name="hashtag"
-                    value="repeat"
-                    class="card__hashtag-hidden-input"
-                  />
-                  <p class="card__hashtag-name">
-                    #repeat
-                  </p>
-                  <button type="button" class="card__hashtag-delete">
-                    delete
-                  </button>
-                </span>
-
-                <span class="card__hashtag-inner">
-                  <input
-                    type="hidden"
-                    name="hashtag"
-                    value="repeat"
-                    class="card__hashtag-hidden-input"
-                  />
-                  <p class="card__hashtag-name">
-                    #cinema
-                  </p>
-                  <button type="button" class="card__hashtag-delete">
-                    delete
-                  </button>
-                </span>
-
-                <span class="card__hashtag-inner">
-                  <input
-                    type="hidden"
-                    name="hashtag"
-                    value="repeat"
-                    class="card__hashtag-hidden-input"
-                  />
-                  <p class="card__hashtag-name">
-                    #entertaiment
-                  </p>
-                  <button type="button" class="card__hashtag-delete">
-                    delete
-                  </button>
-                </span>
+              ${Array.from(this._tags).map((tag) => {
+    return `<span class="card__hashtag-inner">
+              <input
+                type="hidden"
+                name="hashtag"
+                value="${tag}"
+                class="card__hashtag-hidden-input"
+              />
+              <p class="card__hashtag-name">
+                #${tag}
+              </p>
+              <button type="button" class="card__hashtag-delete">
+                delete
+              </button>
+            </span>`;
+  }).join(``)}
               </div>
 
               <label>
@@ -267,4 +251,6 @@ export const markupCardEdit = () => {
       </div>
     </form>
     </article>`;
-};
+  }
+}
+

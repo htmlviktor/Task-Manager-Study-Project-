@@ -3,7 +3,7 @@ const path = require(`path`);
 module.exports = {
   mode: `development`, // режим сборки
   entry: `./src/main.js`, // точка входа
-  output: { // настройка выходного файла
+  output: {// настройка выходного файла
     filename: `bungle.js`,
     path: path.join(__dirname, `public`)
   },
