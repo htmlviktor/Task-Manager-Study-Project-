@@ -1,4 +1,8 @@
-// ф-ция создвния кнопки "load moreconst markupLoadMore = () => {
-export const markupLoadMore = () => {
-  return `<button class="load-more" type="button">load more</button>`;
-};
+import {AbstractComponent} from "./abstract-component";
+
+
+export class LoadMoreBtn extends AbstractComponent {
+  getTemplate() {
+    return `<button class="load-more" type="button">load more</button>`;
+  }
+}

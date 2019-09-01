@@ -1,6 +1,6 @@
 import {AbstractComponent} from './abstract-component.js';
 
-export class TaskEdit extends AbstractComponent{
+export class TaskEdit extends AbstractComponent {
   constructor({description, dueDate, tags, color, repeatingDays}) {
     super();
     this._description = description;
