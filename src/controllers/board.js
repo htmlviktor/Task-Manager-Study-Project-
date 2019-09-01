@@ -86,6 +86,7 @@ export class BoardController {
         break;
     }
   }
+  // клик по кнопе load more
   _onLoadMoreBtnClick(evt) {
     evt.preventDefault();
     this._count = this._count += 8;
