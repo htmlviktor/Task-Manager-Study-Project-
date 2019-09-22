@@ -4,6 +4,7 @@ import {markupFilter} from './components/filter.js';
 import {getTask} from './data.js';
 import {filterData} from './data.js';
 import {BoardController} from './controllers/board.js';
+import { TaskController } from './controllers/tasks.js';
 
 
 const mainControl = document.querySelector(`.main__control`);
