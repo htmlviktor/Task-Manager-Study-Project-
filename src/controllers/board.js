@@ -1,10 +1,9 @@
 import {Board} from "../components/board.js";
 import {TaskList} from "../components/task-list.js";
-import {Task} from "../components/card.js";
-import {TaskEdit} from "../components/card-edit.js";
-import {render, Position} from '../utils.js';
+import {render, unrender, Position} from '../utils/utils.js';
 import {Sort} from "../components/sort";
 import {LoadMoreBtn} from "../components/load-more-btn.js";
+import {TaskController} from "../controllers/tasks.js";
 
 export class BoardController {
   constructor(container, tasks) {
@@ -15,6 +14,9 @@ export class BoardController {
     this._taskList = new TaskList();
     this._moreBtn = new LoadMoreBtn();
     this._count = 8;
+    this._subscriptions = [];
+    this._onDataChange = this._onDataChange.bind(this);
+    this._onChangeView = this._onChangeView.bind(this);
   }
   init() {
     render(this._container, this._board.getElement(), Position.BEFOREEND);
@@ -28,42 +30,24 @@ export class BoardController {
     this._moreBtn.getElement()
     .addEventListener(`click`, (evt) => this._onLoadMoreBtnClick(evt));
   }
+  _renderBoard(tasks) {
+    unrender(this._taskList.getElement());
+
+    this._taskList.removeElement();
+    render(this._board.getElement(), this._taskList.getElement(), Position.BEFOREEND);
+    render(this._board.getElement(), this._moreBtn.getElement(), Position.BEFOREEND);
+    this._tasks.slice(0, this._count).forEach((taskMock) => this._renderTask(taskMock));
+  }
   _renderTask(task) {
-    const taskComponent = new Task(task);
-    const taskEditComponent = new TaskEdit(task);
-
-    const onEscKeyDown = (evt) => {
-      if (evt.key === `Escape` || evt.key === `Esc`) {
-        this._taskList.getElement().replaceChild(taskComponent.getElement(), taskEditComponent.getElement());
-        document.removeEventListener(`keydown`, onEscKeyDown);
-      }
-    };
-
-    taskComponent.getElement()
-      .querySelector(`.card__btn--edit`)
-      .addEventListener(`click`, () => {
-        this._taskList.getElement().replaceChild(taskEditComponent.getElement(), taskComponent.getElement());
-        document.addEventListener(`keydown`, onEscKeyDown);
-      });
-
-    taskEditComponent.getElement().querySelector(`textarea`)
-      .addEventListener(`focus`, () => {
-        document.removeEventListener(`keydown`, onEscKeyDown);
-      });
-
-    taskEditComponent.getElement().querySelector(`textarea`)
-      .addEventListener(`blur`, () => {
-        document.addEventListener(`keydown`, onEscKeyDown);
-      });
-
-    taskEditComponent.getElement()
-      .querySelector(`.card__save`)
-      .addEventListener(`click`, () => {
-        this._taskList.getElement.replaceChild(taskComponent.getElement(), taskEditComponent.getElement());
-        document.removeEventListener(`keydown`, onEscKeyDown);
-      });
-
-    render(this._taskList.getElement(), taskComponent.getElement(), Position.BEFOREEND);
+    const taskController = new TaskController(this._taskList, task, this._onDataChange, this._onChangeView);
+    this._subscriptions.push(taskController.setDefaultView.bind(taskController));
+  }
+  _onChangeView(){
+    this._subscriptions.forEach((it) => it());
+  }
+  _onDataChange(newData, oldData){
+    this._tasks[this._tasks.findIndex((it) => it === oldData)] = newData;
+    this._renderBoard(this._tasks)
   }
   _onSortLinkClick(evt) {
     evt.preventDefault();
